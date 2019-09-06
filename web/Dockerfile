@@ -1,7 +1,7 @@
 FROM ubuntu:disco
 
 RUN apt-get update
-RUN apt-get install -y libzstd1 libbotan-2-9 libpqxx-6.2 libssl1.1 libboost-filesystem-dev libboost-system-dev libboost-program-options-dev
+RUN apt-get install -y libzstd1 libbotan-2-9 libpqxx-6.2 libssl1.1 libboost-filesystem1.67.0 libboost-system1.67.0 libboost-program-options1.67.0
 
 VOLUME ["/var/judoassistant"]
 
