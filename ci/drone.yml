@@ -16,6 +16,7 @@ steps:
     tags:
     - latest
     custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
+    cache_from: "judoassistant/judoassistant-ui-dev:latest"
   when:
     branch:
     - master
@@ -23,7 +24,7 @@ steps:
   image: plugins/docker
   settings:
     repo: judoassistant/judoassistant-web-dev
-    dockerfile: ui-dev/Dockerfile
+    dockerfile: web-dev/Dockerfile
     username:
         from_secret: docker_username
     password:
@@ -31,6 +32,7 @@ steps:
     tags:
     - latest
     custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
+    cache_from: "judoassistant/judoassistant-web-dev:latest"
   when:
     branch:
     - master
