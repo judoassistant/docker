@@ -11,8 +11,18 @@ EXPOSE 9000
 # Websocket Port
 EXPOSE 9001
 
+# Environment Variables
+ENV POSTGRES_DB
+ENV POSTGRES_USER
+ENV POSTGRES_PASSWORD
+ENV POSTGRES_HOST
+ENV THREAD_COUNT 2
+
+# Copy Files
 COPY build-web/judoassistant-web /usr/bin/judoassistant-web
 COPY data/example-server-config.cfg /etc/judoassistant/config.cfg
 
+# Entry point
 ENTRYPOINT ["/usr/bin/judoassistant-web"]
-CMD ["--help"]
+CMD ["--workers", "${THREAD_COUNT}", "--postgres", "host=${POSTGRES_HOST} user=${POSTGRES_USER} password=${POSTGRES_PASSWORD} dbname=${POSTGRES_DB}"]
+
