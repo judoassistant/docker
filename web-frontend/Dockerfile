@@ -24,6 +24,8 @@ ENV NUXT_HOST=0.0.0.0
 # set app port
 ENV NUXT_PORT=8000
 
+ENV WEB_SOCKET_URL=wss://live.judoassistant.com
+
 # start the app
 CMD [ "npm", "start" ]
 
