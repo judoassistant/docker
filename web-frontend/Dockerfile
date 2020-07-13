@@ -1,4 +1,4 @@
-FROM node:11.13.0-alpine
+FROM node:14.5.0-alpine3.12
 
 # create destination directory
 RUN mkdir -p /usr/src/judoassistant
