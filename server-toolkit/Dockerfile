@@ -10,7 +10,7 @@ RUN echo $TZ > /etc/timezone
 
 # Update and install packages
 RUN apt-get update
-RUN apt-get install -y python3 python3-bcrypt python3-sqlalchemy
+RUN apt-get install -y python3 python3-bcrypt python3-sqlalchemy python3-psycopg2
 
 # Copy Files
 COPY judoassistant.py /usr/bin/judoassistant.py
