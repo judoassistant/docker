@@ -13,6 +13,7 @@ RUN apt-get update
 RUN apt-get install -y alembic
 
 # Entry point
+WORKDIR /alembic
 ENTRYPOINT ["/usr/bin/alembic"]
 CMD ["--help" ]
 
