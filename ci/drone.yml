@@ -36,4 +36,19 @@ steps:
   when:
     branch:
     - master
-
+- name: alembic
+  image: plugins/docker
+  settings:
+    repo: judoassistant/alembic
+    dockerfile: alembic/Dockerfile
+    username:
+        from_secret: docker_username
+    password:
+        from_secret: docker_password
+    tags:
+    - latest
+    custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
+    cache_from: "judoassistant/alembic:latest"
+  when:
+    branch:
+    - master
