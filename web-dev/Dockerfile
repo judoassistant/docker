@@ -9,6 +9,6 @@ RUN echo $TZ > /etc/timezone
 
 # Update and install packages
 RUN apt-get update
-RUN apt-get install -y ninja-build meson build-essential pkg-config ca-certificates
+RUN apt-get install -y ninja-build meson build-essential pkg-config ca-certificates git
 RUN apt-get install -y libssl-dev libcereal-dev libzstd-dev libboost-date-time-dev libboost-filesystem-dev libboost-system-dev libboost-program-options-dev libbotan-2-dev libpqxx-dev rapidjson-dev
 
