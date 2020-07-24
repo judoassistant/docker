@@ -10,10 +10,9 @@ RUN echo $TZ > /etc/timezone
 
 # Update and install packages
 RUN apt-get update
-RUN apt-get install -y alembic
+RUN apt-get install -y alembic python3-psycopg2
 
 # Entry point
-WORKDIR /alembic
 ENTRYPOINT ["/usr/bin/alembic"]
 CMD ["--help" ]
 
