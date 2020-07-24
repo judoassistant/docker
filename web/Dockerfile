@@ -30,5 +30,5 @@ COPY data/example-server-config.cfg /etc/judoassistant/config.cfg
 
 # Entry point
 ENTRYPOINT ["/usr/bin/judoassistant-web"]
-CMD ["--workers", "${THREAD_COUNT}", "--postgres", "host=${POSTGRES_HOST} user=${POSTGRES_USER} password=${POSTGRES_PASSWORD} dbname=${POSTGRES_DB}"]
+CMD ["sh", "-c", "--workers", "$THREAD_COUNT", "--postgres", "host=$POSTGRES_HOST user=$POSTGRES_USER password=$POSTGRES_PASSWORD dbname=$POSTGRES_DB"]
 
