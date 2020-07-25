@@ -26,8 +26,9 @@ EXPOSE 9001
 
 # Copy Files
 COPY build-web/judoassistant-web /usr/bin/judoassistant-web
+COPY build-web/docker/web/wrapper.sh /usr/bin/judoassistant-web-wrapper.sh
 COPY data/example-server-config.cfg /etc/judoassistant/config.cfg
 
 # Entry point
-CMD ["/bin/bash", "-c", "/usr/bin/judoassistant-web", "--workers", "$THREAD_COUNT", "--postgres", '"host=$POSTGRES_HOST user=$POSTGRES_USER password=$POSTGRES_PASSWORD dbname=$POSTGRES_DB"']
+ENTRYPOINT ["/usr/bin/judoassistant-web-wrapper.sh"]
 
