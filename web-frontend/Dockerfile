@@ -8,23 +8,24 @@ WORKDIR /usr/src/judoassistant
 RUN apk update && apk upgrade
 RUN apk add git
 
-# copy the app, note .dockerignore
+# set build time arguments
+ARG WEB_SOCKET_URL=wss://live.judoassistant.com/ws
+
+# set run time arguments
+ENV NUXT_HOST 0.0.0.0
+ENV NUXT_PORT 8000
+
+# copy the app
 COPY . /usr/src/judoassistant/
+
+# install dependencies
 RUN npm install
 
-# build necessary, even if no static files are needed,
-# since it builds the server as well
+# build static files
 RUN npm run build
 
-# expose 5000 on container
+# expose port
 EXPOSE 8000
-
-# set app serving to permissive / assigned
-ENV NUXT_HOST=0.0.0.0
-# set app port
-ENV NUXT_PORT=8000
-
-ENV WEB_SOCKET_URL=wss://live.judoassistant.com
 
 # start the app
 CMD [ "npm", "start" ]
