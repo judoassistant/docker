@@ -15,7 +15,6 @@ steps:
         from_secret: docker_password
     tags:
     - latest
-    custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
     cache_from: "judoassistant/judoassistant-ui-dev:latest"
   when:
     branch:
@@ -31,7 +30,6 @@ steps:
         from_secret: docker_password
     tags:
     - latest
-    custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
     cache_from: "judoassistant/judoassistant-web-dev:latest"
   when:
     branch:
@@ -47,7 +45,6 @@ steps:
         from_secret: docker_password
     tags:
     - latest
-    custom_dns: [10.83.252.10, 10.83.16.53, 10.88.1.95]
     cache_from: "judoassistant/alembic:latest"
   when:
     branch:
